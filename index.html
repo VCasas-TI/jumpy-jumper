@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jumpy Jumper — Bounce Houses, Tables & Concessions for Rent in LA</title>
+  <meta name="description" content="Premium inflatable jumpers, tables, chairs, and concession machines for rent in Los Angeles & surrounding areas. Bilingual service. Free delivery within 5 miles." />
+  <meta property="og:title" content="Jumpy Jumper — Bounce House Rentals in LA" />
+  <meta property="og:description" content="Castillos inflables, mesas y concesiones en renta en Los Angeles." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+</head>
+<body>
+  <header class="jj-header">
+    <div class="jj-container jj-header__inner">
+      <a href="index.html" class="jj-logo">
+        <img src="assets/logo.png" alt="Jumpy Jumper" class="jj-logo__img" />
+        <span>Jumpy Jumper</span>
+      </a>
+      <nav class="jj-nav" aria-label="Main">
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="shop.html" data-i18n="nav.shop">Shop</a>
+        <a href="gallery.html" data-i18n="nav.gallery">Gallery</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
+      </nav>
+      <div class="jj-header__actions">
+        <div class="jj-lang-toggle" role="group" aria-label="Language">
+          <button data-set-lang="en" class="is-active">EN</button>
+          <button data-set-lang="es">ES</button>
+        </div>
+        <button id="jjCartBtn" class="jj-cart-btn" aria-label="Open cart">
+          <span aria-hidden="true">🛒</span>
+          <span id="jjCartCount" class="jj-cart-count" style="display: none;">0</span>
+        </button>
+        <button id="jjMenuToggle" class="jj-menu-toggle" aria-label="Open menu">☰</button>
+      </div>
+    </div>
+    <div id="jjMobileNav" class="jj-mobile-nav">
+      <a href="index.html" data-i18n="nav.home">Home</a>
+      <a href="shop.html" data-i18n="nav.shop">Shop</a>
+      <a href="gallery.html" data-i18n="nav.gallery">Gallery</a>
+      <a href="contact.html" data-i18n="nav.contact">Contact</a>
+    </div>
+  </header>
+  <section class="jj-hero">
+    <div class="jj-hero__shapes">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="jj-container jj-hero__inner">
+      <div class="jj-hero__text">
+        <span class="jj-tag" data-i18n="home.tag">Bounce Houses · Tables · Concessions</span>
+        <h1 data-i18n="home.title">Make your party unforgettable 🎉</h1>
+        <p data-i18n="home.subtitle">Premium inflatable jumpers, tables, chairs, and concession machines for rent in Los Angeles & surrounding areas. Hablamos español.</p>
+        <div class="jj-hero__cta">
+          <a href="shop.html" class="jj-btn jj-btn--accent" data-i18n="home.ctaShop">Browse Catalog</a>
+          <a href="contact.html" class="jj-btn jj-btn--ghost" style="background: rgba(255,255,255,.15); color: white; border-color: white;" data-i18n="home.ctaContact">Get a Quote</a>
+        </div>
+      </div>
+      <div class="jj-hero__image">
+        <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=900&q=80&auto=format&fit=crop" alt="Colorful inflatable bounce house" />
+      </div>
+    </div>
+  </section>
+
+  
+  <!-- PROMO BANNER -->
+  <section class="jj-promo-banner" id="jjPromoBanner">
+    <div class="jj-container">
+      <div class="jj-promo-banner__inner">
+        <div class="jj-promo-slide is-active" data-slide="0">
+          <div class="jj-promo-slide__content">
+            <span class="jj-tag" data-i18n="promo.s1.tag">🔥 Summer Special</span>
+            <h2 class="jj-promo-slide__title" data-i18n="promo.s1.title">Summer Specials — Mon to Thu</h2>
+            <p class="jj-promo-slide__desc" data-i18n="promo.s1.desc">1 Jumper Water Slide 26x13x18 + Snow Cone Machine + 3 Tables + 24 Chairs. Perfect for a refreshing summer party.</p>
+            <a href="shop.html" class="jj-btn jj-btn--accent" data-i18n="promo.s1.cta">See package</a>
+          </div>
+          <div class="jj-promo-slide__image">
+            <img src="https://www.jumpy-jumper.com/web/wp-content/uploads/2017/07/slide-9-5.gif" alt="Summer Specials" loading="lazy" />
+          </div>
+        </div>
+
+        <div class="jj-promo-slide" data-slide="1">
+          <div class="jj-promo-slide__content">
+            <span class="jj-tag" data-i18n="promo.s2.tag">💰 Save More</span>
+            <h2 class="jj-promo-slide__title" data-i18n="promo.s2.title">Combo Packages from $170</h2>
+            <p class="jj-promo-slide__desc" data-i18n="promo.s2.desc">Jumper combo with slide + 3 tables + 24 chairs. The best value for houses and parks.</p>
+            <a href="shop.html" class="jj-btn jj-btn--accent" data-i18n="promo.s2.cta">Browse packages</a>
+          </div>
+          <div class="jj-promo-slide__image">
+            <img src="https://www.jumpy-jumper.com/web/wp-content/uploads/2017/07/slide-7-2.jpg" alt="Combo Packages" loading="lazy" />
+          </div>
+        </div>
+
+        <div class="jj-promo-slide" data-slide="2">
+          <div class="jj-promo-slide__content">
+            <span class="jj-tag" data-i18n="promo.s3.tag">🎉 Special</span>
+            <h2 class="jj-promo-slide__title" data-i18n="promo.s3.title">Big size Jumper 3 in 1 Combo</h2>
+            <p class="jj-promo-slide__desc" data-i18n="promo.s3.desc">31 x 15 x 15 ft. Ideal for big kids and teens. Long slide, room for everyone.</p>
+            <a href="shop.html" class="jj-btn jj-btn--accent" data-i18n="promo.s3.cta">View details</a>
+          </div>
+          <div class="jj-promo-slide__image">
+            <img src="https://www.jumpy-jumper.com/web/wp-content/uploads/2015/08/slide-41.jpg" alt="Big Jumper Combo" loading="lazy" />
+          </div>
+        </div>
+
+        <div class="jj-promo-slide" data-slide="3">
+          <div class="jj-promo-slide__content">
+            <span class="jj-tag" data-i18n="promo.s4.tag">🌴 Pool Party</span>
+            <h2 class="jj-promo-slide__title" data-i18n="promo.s4.title">Water Slides for Pool Parties</h2>
+            <p class="jj-promo-slide__desc" data-i18n="promo.s4.desc">Make a splash with our water slides. Perfect for birthdays, summer camps and family gatherings.</p>
+            <a href="shop.html" class="jj-btn jj-btn--accent" data-i18n="promo.s4.cta">Browse water slides</a>
+          </div>
+          <div class="jj-promo-slide__image">
+            <img src="https://www.jumpy-jumper.com/web/wp-content/uploads/2015/08/slide-3.jpg" alt="Water Slides" loading="lazy" />
+          </div>
+        </div>
+
+        <div class="jj-promo-banner__arrows">
+          <button class="jj-promo-banner__arrow" id="jjPromoPrev" aria-label="Previous slide">‹</button>
+          <button class="jj-promo-banner__arrow" id="jjPromoNext" aria-label="Next slide">›</button>
+        </div>
+      </div>
+
+      <div class="jj-promo-banner__dots" id="jjPromoDots">
+        <button class="jj-promo-banner__dot is-active" data-slide-to="0" aria-label="Slide 1"></button>
+        <button class="jj-promo-banner__dot" data-slide-to="1" aria-label="Slide 2"></button>
+        <button class="jj-promo-banner__dot" data-slide-to="2" aria-label="Slide 3"></button>
+        <button class="jj-promo-banner__dot" data-slide-to="3" aria-label="Slide 4"></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="jj-section">
+    <div class="jj-container">
+      <div class="jj-features">
+        <div class="jj-feature">
+          <div class="jj-feature__icon">🚚</div>
+          <h3 data-i18n="feat.delivery.title">Free Delivery</h3>
+          <p data-i18n="feat.delivery.desc">On most rentals within 5 miles</p>
+        </div>
+        <div class="jj-feature">
+          <div class="jj-feature__icon">✨</div>
+          <h3 data-i18n="feat.clean.title">Always Clean</h3>
+          <p data-i18n="feat.clean.desc">Sanitized before every rental</p>
+        </div>
+        <div class="jj-feature">
+          <div class="jj-feature__icon">🛠️</div>
+          <h3 data-i18n="feat.setup.title">We Set Up</h3>
+          <p data-i18n="feat.setup.desc">Professional installation included</p>
+        </div>
+        <div class="jj-feature">
+          <div class="jj-feature__icon">💬</div>
+          <h3 data-i18n="feat.support.title">Bilingual Support</h3>
+          <p data-i18n="feat.support.desc">We speak English & Spanish</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="jj-section jj-section--alt">
+    <div class="jj-container">
+      <div class="jj-section-header">
+        <h2 data-i18n="home.featured.title">Popular Rentals</h2>
+        <p data-i18n="home.featured.subtitle">Top picks from our catalog — perfect for birthdays, quinceañeras, school events and family gatherings.</p>
+      </div>
+      <div id="jjFeaturedGrid" class="jj-grid">
+        <div class="jj-loading"><div class="jj-spinner"></div></div>
+      </div>
+      <div class="jj-text-center jj-mt-3">
+        <a href="shop.html" class="jj-btn jj-btn--primary" data-i18n="home.about.cta">See our catalog</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="jj-section">
+    <div class="jj-container">
+      <div class="jj-about-grid">
+        <div class="jj-hero__image" style="aspect-ratio: 4/3;">
+          <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=900&q=80&auto=format&fit=crop" alt="Family enjoying a bounce house party" />
+        </div>
+        <div>
+          <h2 data-i18n="home.about.title">Serving the LA community for over a decade</h2>
+          <p data-i18n="home.about.p1">Jumpy Jumper is a family-owned rental business serving Los Angeles, the San Fernando Valley, and surrounding areas. We've helped thousands of families celebrate with safe, clean, and fun inflatables.</p>
+          <p data-i18n="home.about.p2">Whether you're planning a birthday party, quinceañera, bautismo, school event, or corporate gathering — we have the equipment and experience to make it a success.</p>
+          <a href="shop.html" class="jj-btn jj-btn--accent" data-i18n="home.about.cta">See our catalog</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="jj-section" style="background: linear-gradient(135deg, var(--jj-blue), var(--jj-pink)); color: white; text-align: center;">
+    <div class="jj-container">
+      <h2 style="color: white;" data-i18n="home.cta.title">Ready to book your event?</h2>
+      <p style="opacity: 0.95; max-width: 600px; margin: 0 auto 2rem;" data-i18n="home.cta.subtitle">Send us a message or call — we'll get back to you within 1 hour during business hours.</p>
+      <div class="jj-flex" style="justify-content: center;">
+        <a href="contact.html" class="jj-btn jj-btn--accent" data-i18n="home.ctaContact">Get a Quote</a>
+        <a href="https://wa.me/18184455036" target="_blank" rel="noopener" class="jj-btn" style="background: #25D366; color: white;">💬 WhatsApp +1 (818) 445-5036</a>
+      </div>
+    </div>
+  </section>
+  <footer class="jj-footer">
+    <div class="jj-container">
+      <div class="jj-footer__grid">
+        <div>
+          <a href="index.html" class="jj-logo" style="color: white; margin-bottom: 1rem;">
+            <img src="assets/logo.png" alt="Jumpy Jumper" class="jj-logo__img" />
+            <span>Jumpy Jumper</span>
+          </a>
+          <p data-i18n="footer.tagline" style="margin-top: 1rem; max-width: 320px;">Bounce houses, tables, chairs & concessions for rent in Los Angeles.</p>
+        </div>
+        <div>
+          <h4 data-i18n="footer.shop">Shop</h4>
+          <a href="shop.html" data-i18n="nav.shop">Shop</a>
+          <a href="shop.html?cat=jumpers">Jumpers</a>
+          <a href="shop.html?cat=tables-chairs">Tables & Chairs</a>
+          <a href="shop.html?cat=concessions">Concessions</a>
+        </div>
+        <div>
+          <h4 data-i18n="footer.company">Company</h4>
+          <a href="index.html" data-i18n="nav.home">Home</a>
+          <a href="gallery.html" data-i18n="nav.gallery">Gallery</a>
+          <a href="contact.html" data-i18n="nav.contact">Contact</a>
+          <a href="terms.html" data-i18n="nav.terms">Terms</a>
+          <a href="account.html" data-i18n="nav.account">My Account</a>
+          <a href="https://wa.me/18184455036" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+        <div>
+          <h4 data-i18n="footer.service">Service Area</h4>
+          <a>Los Angeles</a>
+          <a>San Fernando Valley</a>
+          <a>Surrounding Areas</a>
+        </div>
+      </div>
+      <div class="jj-footer__bottom">
+        <span data-i18n="footer.legal">© 2026 Jumpy Jumper. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+  <div id="jjCartOverlay" class="jj-cart-overlay"></div>
+  <aside id="jjCart" class="jj-cart" aria-label="Shopping cart">
+    <div class="jj-cart__header">
+      <h2 data-i18n="cart.title">Your Cart</h2>
+      <button id="jjCartClose" class="jj-cart__close" aria-label="Close cart">✕</button>
+    </div>
+    <div id="jjCartBody" class="jj-cart__body"></div>
+    <div id="jjCartFooter" class="jj-cart__footer" style="display: none;">
+      <div class="jj-cart__total">
+        <span data-i18n="cart.subtotal">Subtotal</span>
+        <span id="jjCartTotal">$0.00</span>
+      </div>
+      <div class="jj-cart__checkout-btns">
+        <button id="jjCheckoutWhatsApp" class="jj-btn jj-btn--accent jj-btn--block">💬 <span data-i18n="cart.checkout.whatsapp">Checkout via WhatsApp</span></button>
+        <button id="jjCheckoutEmail" class="jj-btn jj-btn--ghost jj-btn--block">✉️ <span data-i18n="cart.checkout.email">Checkout via Email</span></button>
+      </div>
+      <p class="jj-cart__note" data-i18n="cart.note">We'll confirm availability and total (incl. delivery & taxes) within 1 hour.</p>
+    </div>
+  </aside>
+  <script src="js/i18n.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/animations.js"></script>
+  <script>jjApplyI18N(jjGetLang());</script>
+</body>
+</html>

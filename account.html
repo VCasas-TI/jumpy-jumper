@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Account — Jumpy Jumper</title>
+  <meta name="description" content="Sign in to your Jumpy Jumper account, register, or manage your settings." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+</head>
+<body>
+  <header class="jj-header">
+    <div class="jj-container jj-header__inner">
+      <a href="index.html" class="jj-logo">
+        <img src="assets/logo.png" alt="Jumpy Jumper" class="jj-logo__img" />
+        <span>Jumpy Jumper</span>
+      </a>
+      <nav class="jj-nav" aria-label="Main">
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="shop.html" data-i18n="nav.shop">Shop</a>
+        <a href="gallery.html" data-i18n="nav.gallery">Gallery</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
+      </nav>
+      <div class="jj-header__actions">
+        <div class="jj-lang-toggle" role="group" aria-label="Language">
+          <button data-set-lang="en" class="is-active">EN</button>
+          <button data-set-lang="es">ES</button>
+        </div>
+        <button id="jjCartBtn" class="jj-cart-btn" aria-label="Open cart">
+          <span aria-hidden="true">🛒</span>
+          <span id="jjCartCount" class="jj-cart-count" style="display: none;">0</span>
+        </button>
+        <button id="jjMenuToggle" class="jj-menu-toggle" aria-label="Open menu">☰</button>
+      </div>
+    </div>
+    <div id="jjMobileNav" class="jj-mobile-nav">
+      <a href="index.html" data-i18n="nav.home">Home</a>
+      <a href="shop.html" data-i18n="nav.shop">Shop</a>
+      <a href="gallery.html" data-i18n="nav.gallery">Gallery</a>
+      <a href="contact.html" data-i18n="nav.contact">Contact</a>
+    </div>
+  </header>
+  <section class="jj-section" style="background: linear-gradient(135deg, var(--jj-blue) 0%, var(--jj-pink) 100%); color: white; padding: 3rem 0;">
+    <div class="jj-container">
+      <h1 style="color: white; margin: 0;" data-i18n="account.title">My Account 📝</h1>
+      <p style="opacity: 0.95; margin-top: 0.5rem; max-width: 640px;" data-i18n="account.subtitle">Sign in, register, or manage your Jumpy Jumper account. Save your info for faster checkout.</p>
+    </div>
+  </section>
+
+  <section class="jj-section">
+    <div class="jj-container">
+      <div class="jj-account-shell">
+
+        <!-- TABS -->
+        <div class="jj-account-tabs" role="tablist">
+          <button class="jj-account-tab is-active" data-tab="login" role="tab" data-i18n="account.tab.login">Sign In</button>
+          <button class="jj-account-tab" data-tab="register" role="tab" data-i18n="account.tab.register">Create Account</button>
+          <button class="jj-account-tab" data-tab="settings" role="tab" data-i18n="account.tab.settings">Account Settings</button>
+          <button class="jj-account-tab" data-tab="history" role="tab" data-i18n="account.tab.history">My Rentals</button>
+        </div>
+
+        <!-- LOGIN -->
+        <div class="jj-account-panel is-active" id="panel-login">
+          <h2 data-i18n="account.login.title">Welcome back</h2>
+          <p style="color: var(--jj-text-muted); margin-bottom: 1.5rem;" data-i18n="account.login.sub">Sign in to access your rentals and saved info.</p>
+          <form id="jjLoginForm">
+            <div class="jj-form-group">
+              <label for="jj-login-email" data-i18n="account.form.email">Email</label>
+              <input type="email" id="jj-login-email" name="email" required placeholder="you@example.com" />
+            </div>
+            <div class="jj-form-group">
+              <label for="jj-login-password" data-i18n="account.form.password">Password</label>
+              <input type="password" id="jj-login-password" name="password" required minlength="6" />
+            </div>
+            <div class="jj-form-row">
+              <label class="jj-checkbox"><input type="checkbox" name="remember" /> <span data-i18n="account.form.remember">Remember me</span></label>
+              <a href="#" class="jj-link" data-i18n="account.form.forgot">Forgot password?</a>
+            </div>
+            <button type="submit" class="jj-btn jj-btn--primary jj-btn--block" data-i18n="account.login.submit">Sign in</button>
+            <p id="jjLoginMsg" class="jj-account-msg" style="display:none;"></p>
+          </form>
+          <div class="jj-account-foot">
+            <span data-i18n="account.login.noAccount">Don't have an account?</span>
+            <button type="button" class="jj-link" data-jump-tab="register" data-i18n="account.tab.register">Create one</button>
+          </div>
+        </div>
+
+        <!-- REGISTER -->
+        <div class="jj-account-panel" id="panel-register">
+          <h2 data-i18n="account.register.title">Create your account</h2>
+          <p style="color: var(--jj-text-muted); margin-bottom: 1.5rem;" data-i18n="account.register.sub">Save your info for faster checkout and to track your rentals.</p>
+          <form id="jjRegisterForm">
+            <div class="jj-form-grid">
+              <div class="jj-form-group">
+                <label for="jj-reg-firstname" data-i18n="account.form.firstName">First name</label>
+                <input type="text" id="jj-reg-firstname" name="firstname" required />
+              </div>
+              <div class="jj-form-group">
+                <label for="jj-reg-lastname" data-i18n="account.form.lastName">Last name</label>
+                <input type="text" id="jj-reg-lastname" name="lastname" required />
+              </div>
+            </div>
+            <div class="jj-form-group">
+              <label for="jj-reg-email" data-i18n="account.form.email">Email</label>
+              <input type="email" id="jj-reg-email" name="email" required />
+            </div>
+            <div class="jj-form-group">
+              <label for="jj-reg-phone" data-i18n="account.form.phone">Phone</label>
+              <input type="tel" id="jj-reg-phone" name="phone" placeholder="+1 (555) 123-4567" />
+            </div>
+            <div class="jj-form-group">
+              <label for="jj-reg-password" data-i18n="account.form.password">Password</label>
+              <input type="password" id="jj-reg-password" name="password" required minlength="6" />
+            </div>
+            <div class="jj-form-group">
+              <label for="jj-reg-password2" data-i18n="account.form.passwordConfirm">Confirm password</label>
+              <input type="password" id="jj-reg-password2" name="password2" required minlength="6" />
+            </div>
+            <label class="jj-checkbox" style="margin-bottom: 1rem;">
+              <input type="checkbox" name="terms" required />
+              <span data-i18n="account.form.acceptTerms">I accept the</span>
+              <a href="terms.html" class="jj-link" data-i18n="account.form.termsLink">rental terms and conditions</a>
+            </label>
+            <button type="submit" class="jj-btn jj-btn--primary jj-btn--block" data-i18n="account.register.submit">Create account</button>
+            <p id="jjRegisterMsg" class="jj-account-msg" style="display:none;"></p>
+          </form>
+          <div class="jj-account-foot">
+            <span data-i18n="account.register.haveAccount">Already have an account?</span>
+            <button type="button" class="jj-link" data-jump-tab="login" data-i18n="account.tab.login">Sign in</button>
+          </div>
+        </div>
+
+        <!-- SETTINGS -->
+        <div class="jj-account-panel" id="panel-settings">
+          <h2 data-i18n="account.settings.title">Account Settings</h2>
+          <p style="color: var(--jj-text-muted); margin-bottom: 1.5rem;" data-i18n="account.settings.sub">Manage your personal info, password, and notification preferences.</p>
+          <form id="jjSettingsForm">
+            <h3 data-i18n="account.settings.profile">Profile</h3>
+            <div class="jj-form-grid">
+              <div class="jj-form-group">
+                <label for="jj-set-firstname" data-i18n="account.form.firstName">First name</label>
+                <input type="text" id="jj-set-firstname" name="firstname" />
+              </div>
+              <div class="jj-form-group">
+                <label for="jj-set-lastname" data-i18n="account.form.lastName">Last name</label>
+                <input type="text" id="jj-set-lastname" name="lastname" />
+              </div>
+            </div>
+            <div class="jj-form-group">
+              <label for="jj-set-email" data-i18n="account.form.email">Email</label>
+              <input type="email" id="jj-set-email" name="email" />
+            </div>
+            <div class="jj-form-group">
+              <label for="jj-set-phone" data-i18n="account.form.phone">Phone</label>
+              <input type="tel" id="jj-set-phone" name="phone" />
+            </div>
+            <div class="jj-form-group">
+              <label for="jj-set-address" data-i18n="account.form.address">Default address</label>
+              <input type="text" id="jj-set-address" name="address" placeholder="123 Main St, Los Angeles, CA 90001" />
+            </div>
+
+            <h3 style="margin-top: 2rem;" data-i18n="account.settings.password">Change password</h3>
+            <div class="jj-form-grid">
+              <div class="jj-form-group">
+                <label for="jj-set-password" data-i18n="account.form.newPassword">New password</label>
+                <input type="password" id="jj-set-password" name="newpassword" minlength="6" />
+              </div>
+              <div class="jj-form-group">
+                <label for="jj-set-password2" data-i18n="account.form.passwordConfirm">Confirm new password</label>
+                <input type="password" id="jj-set-password2" name="newpassword2" minlength="6" />
+              </div>
+            </div>
+
+            <h3 style="margin-top: 2rem;" data-i18n="account.settings.notifications">Notifications</h3>
+            <label class="jj-checkbox" style="margin-bottom: 0.5rem;">
+              <input type="checkbox" name="notifEmail" />
+              <span data-i18n="account.settings.notifEmail">Email me about special offers and updates</span>
+            </label>
+            <label class="jj-checkbox" style="margin-bottom: 0.5rem;">
+              <input type="checkbox" name="notifSms" />
+              <span data-i18n="account.settings.notifSms">SMS me about my rentals</span>
+            </label>
+
+            <div style="display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap;">
+              <button type="submit" class="jj-btn jj-btn--primary" data-i18n="account.settings.save">Save changes</button>
+              <button type="button" class="jj-btn jj-btn--ghost" id="jjLogoutBtn" data-i18n="account.settings.logout">Log out</button>
+            </div>
+            <p id="jjSettingsMsg" class="jj-account-msg" style="display:none;"></p>
+          </form>
+        </div>
+
+        <!-- HISTORY -->
+        <div class="jj-account-panel" id="panel-history">
+          <h2 data-i18n="account.history.title">My Rentals</h2>
+          <p style="color: var(--jj-text-muted); margin-bottom: 1.5rem;" data-i18n="account.history.sub">Your rental history and upcoming reservations.</p>
+          <div id="jjHistoryEmpty" class="jj-account-empty">
+            <div style="font-size: 3rem; margin-bottom: 0.5rem;">📭</div>
+            <p data-i18n="account.history.emptyTitle">No rentals yet</p>
+            <p style="font-size: 0.9rem;" data-i18n="account.history.emptyHint">When you reserve a jumper or equipment, you'll see it here.</p>
+            <a href="shop.html" class="jj-btn jj-btn--accent" data-i18n="account.history.cta">Browse catalog</a>
+          </div>
+          <div id="jjHistoryList" style="display:none;"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <footer class="jj-footer">
+    <div class="jj-container">
+      <div class="jj-footer__grid">
+        <div>
+          <a href="index.html" class="jj-logo" style="color: white; margin-bottom: 1rem;">
+            <img src="assets/logo.png" alt="Jumpy Jumper" class="jj-logo__img" />
+            <span>Jumpy Jumper</span>
+          </a>
+          <p data-i18n="footer.tagline" style="margin-top: 1rem; max-width: 320px;">Bounce houses, tables, chairs & concessions for rent in Los Angeles.</p>
+        </div>
+        <div>
+          <h4 data-i18n="footer.shop">Shop</h4>
+          <a href="shop.html" data-i18n="nav.shop">Shop</a>
+          <a href="shop.html?cat=jumpers">Jumpers</a>
+          <a href="shop.html?cat=tables-chairs">Tables & Chairs</a>
+          <a href="shop.html?cat=concessions">Concessions</a>
+        </div>
+        <div>
+          <h4 data-i18n="footer.company">Company</h4>
+          <a href="index.html" data-i18n="nav.home">Home</a>
+          <a href="gallery.html" data-i18n="nav.gallery">Gallery</a>
+          <a href="contact.html" data-i18n="nav.contact">Contact</a>
+          <a href="terms.html" data-i18n="nav.terms">Terms</a>
+          <a href="account.html" data-i18n="nav.account">My Account</a>
+        </div>
+        <div>
+          <h4 data-i18n="footer.service">Service Area</h4>
+          <a>Los Angeles</a>
+          <a>San Fernando Valley</a>
+          <a>Surrounding Areas</a>
+        </div>
+      </div>
+      <div class="jj-footer__bottom">
+        <span data-i18n="footer.legal">© 2026 Jumpy Jumper. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+  <div id="jjCartOverlay" class="jj-cart-overlay"></div>
+  <aside id="jjCart" class="jj-cart" aria-label="Shopping cart">
+    <div class="jj-cart__header">
+      <h2 data-i18n="cart.title">Your Cart</h2>
+      <button id="jjCartClose" class="jj-cart__close" aria-label="Close cart">✕</button>
+    </div>
+    <div id="jjCartBody" class="jj-cart__body"></div>
+    <div id="jjCartFooter" class="jj-cart__footer" style="display: none;">
+      <div class="jj-cart__total">
+        <span data-i18n="cart.subtotal">Subtotal</span>
+        <span id="jjCartTotal">$0.00</span>
+      </div>
+      <div class="jj-cart__checkout-btns">
+        <button id="jjCheckoutWhatsApp" class="jj-btn jj-btn--accent jj-btn--block">💬 <span data-i18n="cart.checkout.whatsapp">Checkout via WhatsApp</span></button>
+        <button id="jjCheckoutEmail" class="jj-btn jj-btn--ghost jj-btn--block">✉️ <span data-i18n="cart.checkout.email">Checkout via Email</span></button>
+      </div>
+      <p class="jj-cart__note" data-i18n="cart.note">We'll confirm availability and total (incl. delivery & taxes) within 1 hour.</p>
+    </div>
+  </aside>
+  <script src="js/i18n.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/account.js"></script>
+  <script>jjApplyI18N(jjGetLang());</script>
+</body>
+</html>

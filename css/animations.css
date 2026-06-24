@@ -1,0 +1,205 @@
+/* ============================================
+   ANIMATIONS & MOTION
+   ============================================ */
+
+/* Honor user's reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@keyframes jjFadeInUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes jjScaleIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes jjFloat {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-12px); }
+}
+
+@keyframes jjBadgePop {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.4); }
+  100% { transform: scale(1); }
+}
+
+@keyframes jjSlideInRight {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.jj-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.jj-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.jj-grid > *,
+.jj-features > *,
+.jj-categories > *,
+.jj-contact > * {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: jjFadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.jj-grid > *:nth-child(1) { animation-delay: 0.05s; }
+.jj-grid > *:nth-child(2) { animation-delay: 0.10s; }
+.jj-grid > *:nth-child(3) { animation-delay: 0.15s; }
+.jj-grid > *:nth-child(4) { animation-delay: 0.20s; }
+.jj-grid > *:nth-child(5) { animation-delay: 0.25s; }
+.jj-grid > *:nth-child(6) { animation-delay: 0.30s; }
+.jj-grid > *:nth-child(7) { animation-delay: 0.35s; }
+.jj-grid > *:nth-child(8) { animation-delay: 0.40s; }
+.jj-grid > *:nth-child(n+9) { animation-delay: 0.45s; }
+
+.jj-features > *:nth-child(1) { animation-delay: 0.05s; }
+.jj-features > *:nth-child(2) { animation-delay: 0.15s; }
+.jj-features > *:nth-child(3) { animation-delay: 0.25s; }
+.jj-features > *:nth-child(4) { animation-delay: 0.35s; }
+
+.jj-hero__text > * {
+  opacity: 0;
+  animation: jjFadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.jj-hero__text > *:nth-child(1) { animation-delay: 0.1s; }
+.jj-hero__text > *:nth-child(2) { animation-delay: 0.25s; }
+.jj-hero__text > *:nth-child(3) { animation-delay: 0.4s; }
+.jj-hero__text > *:nth-child(4) { animation-delay: 0.55s; }
+
+.jj-hero__image {
+  opacity: 0;
+  animation: jjScaleIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+}
+
+.jj-hero__shapes span {
+  animation: jjFloat 8s ease-in-out infinite;
+}
+.jj-hero__shapes span:nth-child(2) { animation-delay: -2s; animation-duration: 10s; }
+.jj-hero__shapes span:nth-child(3) { animation-delay: -4s; animation-duration: 12s; }
+
+.jj-feature__icon {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.3s ease,
+              color 0.3s ease;
+}
+.jj-feature:hover .jj-feature__icon {
+  transform: scale(1.1) rotate(-5deg);
+  background: linear-gradient(135deg, var(--jj-blue), var(--jj-orange));
+  color: white;
+}
+
+.jj-card { position: relative; }
+.jj-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--jj-radius);
+  background: linear-gradient(135deg, var(--jj-blue), var(--jj-orange));
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+  filter: blur(20px);
+}
+.jj-card:hover::before { opacity: 0.18; }
+.jj-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px -10px rgba(37, 99, 235, 0.25);
+}
+.jj-card__img { position: relative; overflow: hidden; }
+.jj-card__img::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.4));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.jj-card:hover .jj-card__img::after { opacity: 1; }
+.jj-card__img img {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.jj-card:hover .jj-card__img img { transform: scale(1.08); }
+
+.jj-cart-count { transition: transform 0.2s ease; }
+.jj-cart-count.is-pulse { animation: jjBadgePop 0.4s ease; }
+
+.jj-cart-item { animation: jjSlideInRight 0.35s cubic-bezier(0.16, 1, 0.3, 1); }
+
+.jj-btn { position: relative; overflow: hidden; }
+.jj-btn::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+.jj-btn:active::after { width: 300px; height: 300px; }
+
+.jj-logo__img {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.jj-logo:hover .jj-logo__img {
+  transform: rotate(-8deg) scale(1.08);
+}
+
+.jj-cat-pill { transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1); }
+.jj-cat-pill:hover { transform: translateY(-2px); }
+
+.jj-section-header {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.jj-section-header.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.jj-about-grid > *:nth-child(1) {
+  opacity: 0;
+  transform: translateX(-32px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.jj-about-grid > *:nth-child(2) {
+  opacity: 0;
+  transform: translateX(32px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.jj-about-grid.is-visible > * {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+::selection {
+  background: var(--jj-blue);
+  color: white;
+}
+
+*:focus-visible {
+  outline: 3px solid var(--jj-blue);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.jj-header.is-scrolled {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}

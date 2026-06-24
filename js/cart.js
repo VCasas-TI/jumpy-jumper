@@ -5,7 +5,7 @@
 const JJ_CART_KEY = 'jj_cart_v1';
 
 const JJ_BUSINESS = {
-  whatsapp: '18184455036',     // +1 (818) 445-5036 â†’ E.164 sin '+'
+  whatsapp: '18184455036',     // +1 (818) 445-5036 → E.164 sin '+'
   whatsappDisplay: '+1 (818) 445-5036',
   email: 'jumpyjumper62@gmail.com',
   name: 'Jumpy Jumper'
@@ -102,7 +102,7 @@ function jjRenderCart() {
   if (items.length === 0) {
     body.innerHTML = `
       <div class="jj-cart__empty">
-        <div class="jj-cart__empty-icon">ðŸ›’</div>
+        <div class="jj-cart__empty-icon">🛒</div>
         <p>${dict['cart.empty']}</p>
         <p style="font-size: 0.875rem;">${dict['cart.emptyHint']}</p>
         <a href="shop.html" class="jj-btn jj-btn--primary jj-mt-2" onclick="jjCloseCart()">${dict['cart.emptyCta']}</a>
@@ -123,7 +123,7 @@ function jjRenderCart() {
         <div class="jj-cart-item__name"><a href="product.html?slug=${escapeHtml(item.slug)}">${escapeHtml(item.name)}</a></div>
         <div class="jj-cart-item__price">${jjFormatPrice(item.price)} x ${item.qty}</div>
         <div class="jj-cart-item__qty">
-          <button onclick="jjChangeQty('${escapeHtml(item.slug)}', ${item.qty - 1})" aria-label="Decrease">âˆ’</button>
+          <button onclick="jjChangeQty('${escapeHtml(item.slug)}', ${item.qty - 1})" aria-label="Decrease">-</button>
           <span>${item.qty}</span>
           <button onclick="jjChangeQty('${escapeHtml(item.slug)}', ${item.qty + 1})" aria-label="Increase">+</button>
         </div>
@@ -197,7 +197,7 @@ function jjBuildOrderText() {
   const isEn = lang === 'en';
 
   const lines = [];
-  lines.push(isEn ? `Hi ${JJ_BUSINESS.name}! I'd like to rent the following items:` : `Â¡Hola ${JJ_BUSINESS.name}! Quisiera rentar los siguientes productos:`);
+  lines.push(isEn ? `Hi ${JJ_BUSINESS.name}! I'd like to rent the following items:` : `¡Hola ${JJ_BUSINESS.name}! Quisiera rentar los siguientes productos:`);
   lines.push('');
   items.forEach((it, i) => {
     lines.push(`${i + 1}. ${it.name}`);
@@ -209,7 +209,7 @@ function jjBuildOrderText() {
   lines.push(isEn ? 'Please confirm availability and total (delivery & taxes).' : 'Por favor confirmen disponibilidad y total (entrega e impuestos).');
   lines.push('');
   lines.push(isEn ? 'Event date:' : 'Fecha del evento:');
-  lines.push(isEn ? 'Address:' : 'DirecciÃ³n:');
+  lines.push(isEn ? 'Address:' : 'Dirección:');
   lines.push(isEn ? 'Name:' : 'Nombre:');
 
   return lines.join('\n');

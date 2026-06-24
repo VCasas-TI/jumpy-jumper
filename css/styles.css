@@ -1,5 +1,5 @@
 /* ============================================
-   JUMPY JUMPER ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬ÂÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â Modern re-design
+   JUMPY JUMPER ÃƒÂ¢Ã¢â€šÂ¬Ã¢€ÂÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢€Å¡Ã‚Â¬Ãƒâ€šÃ‚Â Modern re-design
    Mobile-first, bilingual, WCAG-friendly
    ============================================ */
 
@@ -1184,7 +1184,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   transition: opacity 0.7s ease, transform 0.7s ease;
   pointer-events: none;
   color: white;
-  /* MÃƒÆ’Ã‚Â¡s padding lateral para que las flechas (que estÃƒÆ’Ã‚Â¡n fuera) no tapen nada */
+  /* MÃƒÆ’Ã‚¡s padding lateral para que las flechas (que estÃƒÆ’Ã‚¡n fuera) no tapen nada */
   padding: 0 110px;
 }
 .jj-promo-slide.is-active {
@@ -1211,7 +1211,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   line-height: 1.5;
 }
 
-/* Imagen: ancho y alto respetados naturalmente, solo limita alto mÃƒÆ’Ã‚Â¡ximo */
+/* Imagen: ancho y alto respetados naturalmente, solo limita alto mÃƒÆ’Ã‚¡ximo */
 .jj-promo-slide__image {
   display: none;
   max-height: 220px;

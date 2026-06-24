@@ -1,5 +1,5 @@
 /* ============================================
-   JUMPY JUMPER —â€ Modern re-design
+   JUMPY JUMPER â€”Ã¢â‚¬Â Modern re-design
    Mobile-first, bilingual, WCAG-friendly
    ============================================ */
 
@@ -996,124 +996,6 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .jj-account-tab { padding: 0.75rem 1rem; font-size: 0.85rem; min-width: auto; }
 }
 
-/* ============================================
-   PROMO BANNER (slider de promociones)
-   ============================================ */
-.jj-promo-banner {
-  position: relative;
-  background: linear-gradient(135deg, var(--jj-blue) 0%, var(--jj-pink) 100%);
-  padding: 1rem 0;
-  overflow: hidden;
-}
-.jj-promo-banner__inner {
-  position: relative;
-  min-height: 280px;
-  display: flex;
-  align-items: center;
-}
-.jj-promo-slide {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  grid-template-columns: 1fr;
-  align-items: center;
-  gap: 2rem;
-  opacity: 0;
-  transform: translateX(40px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
-  pointer-events: none;
-  color: white;
-}
-.jj-promo-slide.is-active {
-  opacity: 1;
-  transform: translateX(0);
-  pointer-events: auto;
-  position: relative;
-}
-.jj-promo-slide__content { z-index: 2; }
-.jj-promo-slide__content .jj-tag {
-  background: var(--jj-yellow);
-  color: var(--jj-text);
-}
-.jj-promo-slide__title {
-  color: white;
-  font-size: clamp(1.5rem, 4vw, 2.4rem);
-  margin-bottom: 0.5rem;
-}
-.jj-promo-slide__desc {
-  opacity: 0.95;
-  margin-bottom: 1.25rem;
-  max-width: 540px;
-  font-size: 1.05rem;
-}
-.jj-promo-slide__image {
-  display: none;
-  border-radius: var(--jj-radius-lg);
-  overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-  aspect-ratio: 16/10;
-}
-.jj-promo-slide__image img { width: 100%; height: 100%; object-fit: cover; }
-
-.jj-promo-banner__dots {
-  position: absolute;
-  bottom: 16px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 0.5rem;
-  z-index: 5;
-}
-.jj-promo-banner__dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.4);
-  border: none;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  padding: 0;
-}
-.jj-promo-banner__dot.is-active {
-  background: white;
-  width: 28px;
-  border-radius: 5px;
-}
-
-.jj-promo-banner__arrows {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 1rem;
-  pointer-events: none;
-  z-index: 4;
-}
-.jj-promo-banner__arrow {
-  pointer-events: auto;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.2);
-  color: white;
-  font-size: 1.2rem;
-  display: grid;
-  place-items: center;
-  backdrop-filter: blur(4px);
-  transition: all 0.25s ease;
-}
-.jj-promo-banner__arrow:hover {
-  background: rgba(255,255,255,0.35);
-  transform: scale(1.08);
-}
-
-@media (min-width: 880px) {
-  .jj-promo-slide {
-    grid-template-columns: 1.3fr 1fr;
-  }
-  .jj-promo-slide__image { display: block; }
-}
 
 
 /* ============================================
@@ -1280,13 +1162,13 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .jj-promo-banner {
   position: relative;
   background: linear-gradient(135deg, var(--jj-blue) 0%, var(--jj-pink) 100%);
-  padding: 1rem 0 2.5rem;
+  padding: 1.5rem 0 3rem;
   overflow: hidden;
-  min-height: 220px;
+  min-height: 260px;
 }
 .jj-promo-banner__inner {
   position: relative;
-  min-height: 200px;
+  min-height: 240px;
   display: flex;
   align-items: center;
 }
@@ -1296,14 +1178,14 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   display: grid;
   grid-template-columns: 1fr;
   align-items: center;
-  gap: 1rem;
+  gap: 1.25rem;
   opacity: 0;
   transform: translateX(40px);
   transition: opacity 0.7s ease, transform 0.7s ease;
   pointer-events: none;
   color: white;
-  padding-right: 60px;
-  padding-left: 60px;
+  /* MÃ¡s padding lateral para que las flechas (que estÃ¡n fuera) no tapen nada */
+  padding: 0 110px;
 }
 .jj-promo-slide.is-active {
   opacity: 1;
@@ -1318,34 +1200,41 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .jj-promo-slide__title {
   color: white;
-  font-size: clamp(1.2rem, 3vw, 1.7rem);
-  margin-bottom: 0.35rem;
+  font-size: clamp(1.3rem, 3vw, 1.85rem);
+  margin-bottom: 0.5rem;
 }
 .jj-promo-slide__desc {
   opacity: 0.95;
-  margin-bottom: 0.85rem;
+  margin-bottom: 1rem;
   max-width: 540px;
-  font-size: 0.9rem;
-  line-height: 1.4;
+  font-size: 0.95rem;
+  line-height: 1.5;
 }
+
+/* Imagen: ancho y alto respetados naturalmente, solo limita alto mÃ¡ximo */
 .jj-promo-slide__image {
   display: none;
+  max-height: 220px;
+  max-width: 520px;
   border-radius: var(--jj-radius-lg);
   overflow: hidden;
-  box-shadow: 0 12px 24px rgba(0,0,0,0.3);
-  aspect-ratio: 4/3;
-  max-height: 160px;
+  box-shadow: 0 16px 32px rgba(0,0,0,0.35);
+  align-self: center;
+  justify-self: end;
+  background: rgba(255,255,255,0.08);
 }
 .jj-promo-slide__image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
+  display: block;
+  max-height: 220px;
+  max-width: 520px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
 }
 
 .jj-promo-banner__dots {
   position: absolute;
-  bottom: 0.75rem;
+  bottom: 1rem;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -1368,49 +1257,58 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   border-radius: 5px;
 }
 
+/* Flechas: pegadas al borde absoluto del banner, fuera del contenido */
 .jj-promo-banner__arrows {
   position: absolute;
-  top: 50%;
+  top: 0;
   left: 0;
   right: 0;
-  transform: translateY(-50%);
+  bottom: 0;
   display: flex;
   justify-content: space-between;
-  padding: 0 0.75rem;
+  align-items: center;
   pointer-events: none;
   z-index: 4;
+  /* Sin padding: las flechas quedan en el borde mismo del banner */
+  padding: 0 0.5rem;
 }
 .jj-promo-banner__arrow {
   pointer-events: auto;
-  width: 36px;
-  height: 36px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.25);
+  background: rgba(0,0,0,0.25);
   color: white;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
+  font-weight: 600;
   display: grid;
   place-items: center;
   backdrop-filter: blur(6px);
   transition: all 0.2s ease;
+  flex-shrink: 0;
 }
 .jj-promo-banner__arrow:hover {
-  background: rgba(255,255,255,0.4);
+  background: rgba(0,0,0,0.5);
   transform: scale(1.1);
 }
 
 @media (min-width: 880px) {
-  .jj-promo-banner { padding: 1.25rem 0 2.5rem; }
-  .jj-promo-banner__inner { min-height: 220px; }
+  .jj-promo-banner { padding: 2rem 0 3rem; }
+  .jj-promo-banner__inner { min-height: 280px; }
   .jj-promo-slide {
-    grid-template-columns: 1.3fr 1fr;
-    padding-right: 80px;
-    padding-left: 80px;
-    gap: 1.5rem;
+    grid-template-columns: 1fr auto;
+    padding: 0 130px;
+    gap: 2rem;
   }
   .jj-promo-slide__image {
     display: block;
-    max-height: 180px;
+    max-height: 260px;
+    max-width: 620px;
   }
-  .jj-promo-slide__title { font-size: clamp(1.5rem, 3.5vw, 2rem); }
-  .jj-promo-slide__desc { font-size: 0.95rem; }
+  .jj-promo-slide__image img {
+    max-height: 260px;
+    max-width: 620px;
+  }
+  .jj-promo-slide__title { font-size: clamp(1.5rem, 3vw, 2.1rem); }
+  .jj-promo-slide__desc { font-size: 1rem; }
 }

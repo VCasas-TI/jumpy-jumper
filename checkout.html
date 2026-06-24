@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Checkout — Jumpy Jumper</title>
+  <meta name="description" content="Complete your rental order. Delivery, setup, and cash payment on the day of your event." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+</head>
+<body>
+  <header class="jj-header">
+    <div class="jj-container jj-header__inner">
+      <a href="index.html" class="jj-logo">
+        <img src="assets/logo.png" alt="Jumpy Jumper" class="jj-logo__img" />
+        <span>Jumpy Jumper</span>
+      </a>
+      <nav class="jj-nav" aria-label="Main">
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="shop.html" data-i18n="nav.shop">Shop</a>
+        <a href="gallery.html" data-i18n="nav.gallery">Gallery</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
+      </nav>
+      <div class="jj-header__actions">
+        <div class="jj-lang-toggle" role="group" aria-label="Language">
+          <button data-set-lang="en" class="is-active">EN</button>
+          <button data-set-lang="es">ES</button>
+        </div>
+        <a href="account.html" class="jj-account-link jj-hide-mobile" aria-label="My Account" data-i18n-aria-label="nav.account">
+          <span aria-hidden="true">👤</span>
+        </a>
+        <button id="jjCartBtn" class="jj-cart-btn" aria-label="Open cart">
+          <span aria-hidden="true">🛒</span>
+          <span id="jjCartCount" class="jj-cart-count" style="display: none;">0</span>
+        </button>
+        <button id="jjMenuToggle" class="jj-menu-toggle" aria-label="Open menu">☰</button>
+      </div>
+    </div>
+    <div id="jjMobileNav" class="jj-mobile-nav">
+      <a href="index.html" data-i18n="nav.home">Home</a>
+      <a href="shop.html" data-i18n="nav.shop">Shop</a>
+      <a href="gallery.html" data-i18n="nav.gallery">Gallery</a>
+      <a href="contact.html" data-i18n="nav.contact">Contact</a>
+    </div>
+  </header>
+  <section class="jj-section" style="background: linear-gradient(135deg, var(--jj-blue) 0%, var(--jj-pink) 100%); color: white; padding: 2.5rem 0;">
+    <div class="jj-container">
+      <h1 style="color: white; margin: 0;" data-i18n="checkout.title">Checkout 📋</h1>
+      <p style="opacity: 0.95; margin-top: 0.5rem;" data-i18n="checkout.subtitle">Complete your rental details and we'll confirm availability within 1 hour.</p>
+    </div>
+  </section>
+
+  <section class="jj-section">
+    <div class="jj-container">
+      <div class="jj-checkout-layout">
+
+        <div class="jj-checkout-main">
+
+          <div class="jj-stepper" id="jjStepper">
+            <div class="jj-stepper__step is-active" data-step="1">
+              <span class="jj-stepper__num">1</span>
+              <span class="jj-stepper__label" data-i18n="checkout.step1">Your details</span>
+            </div>
+            <div class="jj-stepper__line"></div>
+            <div class="jj-stepper__step" data-step="2">
+              <span class="jj-stepper__num">2</span>
+              <span class="jj-stepper__label" data-i18n="checkout.step2">Event info</span>
+            </div>
+            <div class="jj-stepper__line"></div>
+            <div class="jj-stepper__step" data-step="3">
+              <span class="jj-stepper__num">3</span>
+              <span class="jj-stepper__label" data-i18n="checkout.step3">Extras & delivery</span>
+            </div>
+          </div>
+
+          <form id="jjCheckoutForm">
+
+            <div class="jj-checkout-panel is-active" data-panel="1">
+              <h2 data-i18n="checkout.section.contact">Contact information</h2>
+              <p class="jj-checkout-sub" data-i18n="checkout.section.contactSub">We'll use this to confirm your reservation.</p>
+
+              <div class="jj-form-grid">
+                <div class="jj-form-group">
+                  <label data-i18n="checkout.field.firstName" for="jj-co-fname">First name *</label>
+                  <input type="text" id="jj-co-fname" name="firstName" required />
+                </div>
+                <div class="jj-form-group">
+                  <label data-i18n="checkout.field.lastName" for="jj-co-lname">Last name *</label>
+                  <input type="text" id="jj-co-lname" name="lastName" required />
+                </div>
+              </div>
+              <div class="jj-form-grid">
+                <div class="jj-form-group">
+                  <label data-i18n="checkout.field.email" for="jj-co-email">Email *</label>
+                  <input type="email" id="jj-co-email" name="email" required />
+                </div>
+                <div class="jj-form-group">
+                  <label data-i18n="checkout.field.phone" for="jj-co-phone">Phone (WhatsApp) *</label>
+                  <input type="tel" id="jj-co-phone" name="phone" required placeholder="+1 (555) 123-4567" />
+                </div>
+              </div>
+
+              <div class="jj-checkout-actions">
+                <span></span>
+                <button type="button" class="jj-btn jj-btn--primary" data-step-next="2">
+                  <span data-i18n="checkout.continue">Continue</span>
+                  <span>›</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="jj-checkout-panel" data-panel="2">
+              <h2 data-i18n="checkout.section.event">Event details</h2>
+              <p class="jj-checkout-sub" data-i18n="checkout.section.eventSub">Tell us when and where you need the equipment.</p>
+
+              <div class="jj-form-grid">
+                <div class="jj-form-group">
+                  <label data-i18n="checkout.field.date" for="jj-co-date">Event date *</label>
+                  <input type="date" id="jj-co-date" name="date" required />
+                </div>
+                <div class="jj-form-group">
+                  <label data-i18n="checkout.field.time" for="jj-co-time">Setup time</label>
+                  <input type="time" id="jj-co-time" name="time" value="10:00" />
+                </div>
+              </div>
+
+              <div class="jj-form-grid">
+                <div class="jj-form-group">
+                  <label data-i18n="checkout.field.duration" for="jj-co-duration">Rental duration (hours)</label>
+                  <select id="jj-co-duration" name="duration">
+                    <option value="4">4 hours</option>
+                    <option value="6">6 hours</option>
+                    <option value="8" selected>8 hours</option>
+                    <option value="12">12 hours (overnight)</option>
+                    <option value="24">24 hours (full day)</option>
+                  </select>
+                </div>
+                <div class="jj-form-group">
+                  <label data-i18n="checkout.field.eventType" for="jj-co-event-type">Event type</label>
+                  <select id="jj-co-event-type" name="eventType">
+                    <option value="birthday">Birthday party</option>
+                    <option value="quinceanera">Quinceañera</option>
+                    <option value="bautismo">Bautismo</option>
+                    <option value="wedding">Wedding</option>
+                    <option value="school">School event</option>
+                    <option value="corporate">Corporate</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="jj-form-group">
+                <label data-i18n="checkout.field.address" for="jj-co-address">Delivery address *</label>
+                <input type="text" id="jj-co-address" name="address" required placeholder="123 Main St, Los Angeles, CA 90001" />
+              </div>
+
+              <div class="jj-form-grid">
+                <div class="jj-form-group">
+                  <label data-i18n="checkout.field.city" for="jj-co-city">City *</label>
+                  <input type="text" id="jj-co-city" name="city" value="Los Angeles" required />
+                </div>
+                <div class="jj-form-group">
+                  <label data-i18n="checkout.field.zip" for="jj-co-zip">ZIP code *</label>
+                  <input type="text" id="jj-co-zip" name="zip" required placeholder="90001" />
+                </div>
+              </div>
+
+              <div class="jj-form-group">
+                <label data-i18n="checkout.field.notes" for="jj-co-notes">Special instructions (gate code, parking, hazards)</label>
+                <textarea id="jj-co-notes" name="notes" rows="3" placeholder="Optional"></textarea>
+              </div>
+
+              <div class="jj-checkout-actions">
+                <button type="button" class="jj-btn jj-btn--ghost" data-step-prev="1">
+                  <span>‹</span>
+                  <span data-i18n="checkout.back">Back</span>
+                </button>
+                <button type="button" class="jj-btn jj-btn--primary" data-step-next="3">
+                  <span data-i18n="checkout.continue">Continue</span>
+                  <span>›</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="jj-checkout-panel" data-panel="3">
+              <h2 data-i18n="checkout.section.extras">Extras & delivery</h2>
+              <p class="jj-checkout-sub" data-i18n="checkout.section.extrasSub">Optional add-ons to make your event complete.</p>
+
+              <h3 data-i18n="checkout.extras.title">Add-ons</h3>
+
+              <div class="jj-extra-options">
+                <label class="jj-extra-option">
+                  <input type="checkbox" name="extra_generator" data-price="80" />
+                  <div class="jj-extra-option__body">
+                    <div class="jj-extra-option__icon">💡</div>
+                    <div>
+                      <div class="jj-extra-option__name" data-i18n="checkout.extras.generator">Portable generator</div>
+                      <div class="jj-extra-option__desc" data-i18n="checkout.extras.generatorDesc">Required for parks without electricity. 6-8 hour tank included.</div>
+                    </div>
+                    <div class="jj-extra-option__price">+$80</div>
+                  </div>
+                </label>
+
+                <label class="jj-extra-option">
+                  <input type="checkbox" name="extra_linens" data-price="25" />
+                  <div class="jj-extra-option__body">
+                    <div class="jj-extra-option__icon">🎀</div>
+                    <div>
+                      <div class="jj-extra-option__name" data-i18n="checkout.extras.linens">Table linens</div>
+                      <div class="jj-extra-option__desc" data-i18n="checkout.extras.linensDesc">Decorative tablecloths for all tables (set of 6).</div>
+                    </div>
+                    <div class="jj-extra-option__price">+$25</div>
+                  </div>
+                </label>
+
+                <label class="jj-extra-option">
+                  <input type="checkbox" name="extra_setup" data-price="40" checked />
+                  <div class="jj-extra-option__body">
+                    <div class="jj-extra-option__icon">🛠️</div>
+                    <div>
+                      <div class="jj-extra-option__name" data-i18n="checkout.extras.setup">Premium setup & teardown</div>
+                      <div class="jj-extra-option__desc" data-i18n="checkout.extras.setupDesc">We arrive 30 min early and stay 30 min after to handle takedown.</div>
+                    </div>
+                    <div class="jj-extra-option__price">+$40</div>
+                  </div>
+                </label>
+
+                <label class="jj-extra-option">
+                  <input type="checkbox" name="extra_supplies" data-price="35" />
+                  <div class="jj-extra-option__body">
+                    <div class="jj-extra-option__icon">🍬</div>
+                    <div>
+                      <div class="jj-extra-option__name" data-i18n="checkout.extras.supplies">Concession supplies</div>
+                      <div class="jj-extra-option__desc" data-i18n="checkout.extras.suppliesDesc">Syrups, cones, popcorn bags, cotton candy bags (per machine).</div>
+                    </div>
+                    <div class="jj-extra-option__price">+$35</div>
+                  </div>
+                </label>
+              </div>
+
+              <h3 data-i18n="checkout.delivery.title">Delivery method</h3>
+              <div class="jj-extra-options">
+                <label class="jj-extra-option jj-extra-option--radio">
+                  <input type="radio" name="delivery" value="standard" checked />
+                  <div class="jj-extra-option__body">
+                    <div class="jj-extra-option__icon">🚚</div>
+                    <div>
+                      <div class="jj-extra-option__name" data-i18n="checkout.delivery.standard">Standard delivery</div>
+                      <div class="jj-extra-option__desc" data-i18n="checkout.delivery.standardDesc">Free within 5 miles. Setup starts at your selected time.</div>
+                    </div>
+                    <div class="jj-extra-option__price" data-i18n="checkout.delivery.free">FREE</div>
+                  </div>
+                </label>
+
+                <label class="jj-extra-option jj-extra-option--radio">
+                  <input type="radio" name="delivery" value="extended" />
+                  <div class="jj-extra-option__body">
+                    <div class="jj-extra-option__icon">🚚</div>
+                    <div>
+                      <div class="jj-extra-option__name" data-i18n="checkout.delivery.extended">Extended delivery</div>
+                      <div class="jj-extra-option__desc" data-i18n="checkout.delivery.extendedDesc">5-15 miles from base. $1.50/mile each way.</div>
+                    </div>
+                    <div class="jj-extra-option__price">+$0.00</div>
+                  </div>
+                </label>
+
+                <label class="jj-extra-option jj-extra-option--radio">
+                  <input type="radio" name="delivery" value="pickup" />
+                  <div class="jj-extra-option__body">
+                    <div class="jj-extra-option__icon">🏠</div>
+                    <div>
+                      <div class="jj-extra-option__name" data-i18n="checkout.delivery.pickup">Pickup (self transport)</div>
+                      <div class="jj-extra-option__desc" data-i18n="checkout.delivery.pickupDesc">You pick up and return. Discount of $25 applied.</div>
+                    </div>
+                    <div class="jj-extra-option__price" data-i18n="checkout.delivery.pickupPrice">−$25</div>
+                  </div>
+                </label>
+              </div>
+
+              <h3 data-i18n="checkout.contact.title">Preferred contact</h3>
+              <p class="jj-checkout-sub" data-i18n="checkout.contact.sub">How do you want us to send the confirmation?</p>
+              <div class="jj-contact-options">
+                <label class="jj-extra-option jj-extra-option--radio">
+                  <input type="radio" name="contactMethod" value="whatsapp" checked />
+                  <div class="jj-extra-option__body">
+                    <div class="jj-extra-option__icon">💬</div>
+                    <div>
+                      <div class="jj-extra-option__name" data-i18n="checkout.contact.whatsapp">WhatsApp</div>
+                      <div class="jj-extra-option__desc" data-i18n="checkout.contact.whatsappDesc">Fastest. We'll reply within 1 hour during business hours.</div>
+                    </div>
+                  </div>
+                </label>
+
+                <label class="jj-extra-option jj-extra-option--radio">
+                  <input type="radio" name="contactMethod" value="email" />
+                  <div class="jj-extra-option__body">
+                    <div class="jj-extra-option__icon">✉️</div>
+                    <div>
+                      <div class="jj-extra-option__name" data-i18n="checkout.contact.email">Email</div>
+                      <div class="jj-extra-option__desc" data-i18n="checkout.contact.emailDesc">Written confirmation with all details.</div>
+                    </div>
+                  </div>
+                </label>
+
+                <label class="jj-extra-option jj-extra-option--radio">
+                  <input type="radio" name="contactMethod" value="phone" />
+                  <div class="jj-extra-option__body">
+                    <div class="jj-extra-option__icon">📞</div>
+                    <div>
+                      <div class="jj-extra-option__name" data-i18n="checkout.contact.phone">Phone call</div>
+                      <div class="jj-extra-option__desc" data-i18n="checkout.contact.phoneDesc">We'll call you directly to confirm.</div>
+                    </div>
+                  </div>
+                </label>
+              </div>
+
+              <h3 data-i18n="checkout.payment.title">Payment method</h3>
+              <div class="jj-payment-box">
+                <div class="jj-payment-box__icon">💵</div>
+                <div>
+                  <div class="jj-payment-box__title" data-i18n="checkout.payment.cash">Cash on delivery</div>
+                  <div class="jj-payment-box__desc" data-i18n="checkout.payment.cashDesc">Pay the full amount in cash when our team arrives for setup. Please have the exact amount — our drivers don't carry change.</div>
+                </div>
+              </div>
+
+              <div class="jj-checkout-actions">
+                <button type="button" class="jj-btn jj-btn--ghost" data-step-prev="2">
+                  <span>‹</span>
+                  <span data-i18n="checkout.back">Back</span>
+                </button>
+                <button type="submit" class="jj-btn jj-btn--accent">
+                  <span data-i18n="checkout.submit">Send reservation</span>
+                  <span>✅</span>
+                </button>
+              </div>
+            </div>
+
+          </form>
+
+          <div class="jj-checkout-success" id="jjCheckoutSuccess" style="display: none;">
+            <div class="jj-checkout-success__icon">🎉</div>
+            <h2 data-i18n="checkout.success.title">Reservation sent!</h2>
+            <p data-i18n="checkout.success.sub">We'll get back to you within 1 hour during business hours (Mon–Sun, 8 AM – 8 PM).</p>
+            <div class="jj-checkout-success__details" id="jjSuccessDetails"></div>
+            <div class="jj-flex" style="justify-content: center; gap: 1rem; margin-top: 2rem; flex-wrap: wrap;">
+              <a href="index.html" class="jj-btn jj-btn--primary" data-i18n="checkout.success.home">Back to home</a>
+              <a href="shop.html" class="jj-btn jj-btn--ghost" data-i18n="checkout.success.continue">Keep browsing</a>
+            </div>
+          </div>
+
+        </div>
+
+        <aside class="jj-checkout-summary" id="jjCheckoutSummary">
+          <h3 data-i18n="checkout.summary.title">Order summary</h3>
+
+          <div id="jjSummaryItems" class="jj-summary-items">
+            <p style="color: var(--jj-text-muted); text-align: center; padding: 1rem 0;" data-i18n="checkout.summary.empty">Your cart is empty</p>
+          </div>
+
+          <div class="jj-summary-totals" id="jjSummaryTotals" style="display: none;">
+            <div class="jj-summary-row">
+              <span data-i18n="checkout.summary.subtotal">Subtotal</span>
+              <span id="jjSumSubtotal">$0.00</span>
+            </div>
+            <div class="jj-summary-row">
+              <span data-i18n="checkout.summary.extras">Extras</span>
+              <span id="jjSumExtras">$0.00</span>
+            </div>
+            <div class="jj-summary-row">
+              <span data-i18n="checkout.summary.delivery">Delivery</span>
+              <span id="jjSumDelivery">FREE</span>
+            </div>
+            <div class="jj-summary-row jj-summary-row--total">
+              <span data-i18n="checkout.summary.total">Estimated total</span>
+              <span id="jjSumTotal">$0.00</span>
+            </div>
+            <p class="jj-summary-note" data-i18n="checkout.summary.note">Final total confirmed via WhatsApp. Cash payment on delivery.</p>
+          </div>
+
+          <div class="jj-summary-trust">
+            <div class="jj-summary-trust__item">
+              <span>🔒</span>
+              <span data-i18n="checkout.trust.noCard">No card required</span>
+            </div>
+            <div class="jj-summary-trust__item">
+              <span>📅</span>
+              <span data-i18n="checkout.trust.cancel">Free cancellation 72h before</span>
+            </div>
+            <div class="jj-summary-trust__item">
+              <span>⚠️</span>
+              <span data-i18n="checkout.trust.safety">Safety rules apply</span>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+  <footer class="jj-footer">
+    <div class="jj-container">
+      <div class="jj-footer__grid">
+        <div>
+          <a href="index.html" class="jj-logo" style="color: white; margin-bottom: 1rem;">
+            <img src="assets/logo.png" alt="Jumpy Jumper" class="jj-logo__img" />
+            <span>Jumpy Jumper</span>
+          </a>
+          <p data-i18n="footer.tagline" style="margin-top: 1rem; max-width: 320px;">Bounce houses, tables, chairs & concessions for rent in Los Angeles.</p>
+        </div>
+        <div>
+          <h4 data-i18n="footer.shop">Shop</h4>
+          <a href="shop.html" data-i18n="nav.shop">Shop</a>
+          <a href="shop.html?cat=jumpers">Jumpers</a>
+          <a href="shop.html?cat=tables-chairs">Tables & Chairs</a>
+          <a href="shop.html?cat=concessions">Concessions</a>
+        </div>
+        <div>
+          <h4 data-i18n="footer.company">Company</h4>
+          <a href="index.html" data-i18n="nav.home">Home</a>
+          <a href="gallery.html" data-i18n="nav.gallery">Gallery</a>
+          <a href="contact.html" data-i18n="nav.contact">Contact</a>
+          <a href="terms.html" data-i18n="nav.terms">Terms</a>
+          <a href="account.html" data-i18n="nav.account">My Account</a>
+        </div>
+        <div>
+          <h4 data-i18n="footer.service">Service Area</h4>
+          <a>Los Angeles</a>
+          <a>San Fernando Valley</a>
+          <a>Surrounding Areas</a>
+        </div>
+      </div>
+      <div class="jj-footer__bottom">
+        <span data-i18n="footer.legal">© 2026 Jumpy Jumper. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+  <div id="jjCartOverlay" class="jj-cart-overlay"></div>
+  <aside id="jjCart" class="jj-cart" aria-label="Shopping cart">
+    <div class="jj-cart__header">
+      <h2 data-i18n="cart.title">Your Cart</h2>
+      <button id="jjCartClose" class="jj-cart__close" aria-label="Close cart">✕</button>
+    </div>
+    <div id="jjCartBody" class="jj-cart__body"></div>
+    <div id="jjCartFooter" class="jj-cart__footer" style="display: none;">
+      <div class="jj-cart__total">
+        <span data-i18n="cart.subtotal">Subtotal</span>
+        <span id="jjCartTotal">$0.00</span>
+      </div>
+      <div class="jj-cart__checkout-btns">
+        <button id="jjCheckoutWhatsApp" class="jj-btn jj-btn--accent jj-btn--block">💬 <span data-i18n="cart.checkout.whatsapp">Checkout via WhatsApp</span></button>
+        <button id="jjCheckoutEmail" class="jj-btn jj-btn--ghost jj-btn--block">✉️ <span data-i18n="cart.checkout.email">Checkout via Email</span></button>
+      </div>
+      <p class="jj-cart__note" data-i18n="cart.note">We'll confirm availability and total (incl. delivery & taxes) within 1 hour.</p>
+    </div>
+  </aside>
+  <script src="js/i18n.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/checkout.js"></script>
+  <script>jjApplyI18N(jjGetLang());</script>
+</body>
+</html>

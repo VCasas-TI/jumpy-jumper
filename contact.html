@@ -17,6 +17,7 @@
   <link rel="icon" type="image/png" href="assets/logo.png" />
 </head>
 <body>
+
   <header class="jj-header">
     <div class="jj-container jj-header__inner">
       <a href="index.html" class="jj-logo">
@@ -34,6 +35,9 @@
           <button data-set-lang="en" class="is-active">EN</button>
           <button data-set-lang="es">ES</button>
         </div>
+        <a href="account.html" class="jj-account-link jj-hide-mobile" aria-label="My Account" data-i18n-aria-label="nav.account">
+          <span aria-hidden="true">👤</span>
+        </a>
         <button id="jjCartBtn" class="jj-cart-btn" aria-label="Open cart">
           <span aria-hidden="true">🛒</span>
           <span id="jjCartCount" class="jj-cart-count" style="display: none;">0</span>
@@ -48,6 +52,7 @@
       <a href="contact.html" data-i18n="nav.contact">Contact</a>
     </div>
   </header>
+
   <section class="jj-section">
     <div class="jj-container">
       <div class="jj-section-header">
@@ -110,6 +115,7 @@
       </div>
     </div>
   </section>
+
   <footer class="jj-footer">
     <div class="jj-container">
       <div class="jj-footer__grid">
@@ -147,6 +153,7 @@
       </div>
     </div>
   </footer>
+
   <div id="jjCartOverlay" class="jj-cart-overlay"></div>
   <aside id="jjCart" class="jj-cart" aria-label="Shopping cart">
     <div class="jj-cart__header">
@@ -166,6 +173,7 @@
       <p class="jj-cart__note" data-i18n="cart.note">We'll confirm availability and total (incl. delivery & taxes) within 1 hour.</p>
     </div>
   </aside>
+
   <script src="js/i18n.js"></script>
   <script src="js/cart.js"></script>
   <script src="js/main.js"></script>
